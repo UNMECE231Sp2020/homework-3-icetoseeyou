@@ -194,7 +194,7 @@ class List {
 
 	}
 		for(auto *a_ptr=a._front, *b_ptr=b._front;(a_ptr!=nullptr)&&(b_ptr!=nullptr);
-				a_ptr=a_ptr->next,b_ptr=b_ptr->next)
+				a_ptr=a_ptr->next,b_ptr=b_ptr->next){
 			if(a_ptr->value!=b_ptr->value){
 				return false;
 			}
