@@ -183,7 +183,7 @@ class List {
 
 
 
- 	template<class D> friend bool operator==(const List<D> &a, const List <D> &b){
+ 	template<class D> bool operator==(const List<D> &a, const List <D> &b){
 		
 		if (a.size()!=b.size()){
 			return false;
