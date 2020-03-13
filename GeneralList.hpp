@@ -56,7 +56,7 @@ class List {
 		size_t length() const {
 			return _size;
 		}
-
+		
 		void push_front(Data data) {
 			Dlist *newNode = new Dlist;
 			newNode->value = data;
@@ -159,7 +159,18 @@ class List {
 			std::cout<<std::endl;
 			
 		}
+		
+		List &operator=(List &x) {
+			
+			do {
+				pop_front();
 
+			}while(!empty())
+			_front=NULL;
+			_tail=NULL
+
+			return *this;
+		}
 
 
  	template<typename data> friend bool operator==(const List<data> &a, const List <data> &b)
