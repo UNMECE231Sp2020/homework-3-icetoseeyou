@@ -173,8 +173,20 @@ class List {
 		}
 
 
- 	template<Dlist Data> friend bool operator==(const List<data> &a, const List <data> &b)
+ 	template<Dlist Data> friend bool operator==(const List<data> &a, const List <data> &b){
+		for(auto *a_ptr=a._front, auto *b_ptr=b._front;(a_ptr!=nullptr)&&(b_ptr!=nullptr);
+				a_ptr=a_ptr=->next,b_ptr=bptr->next)
+			if(a_ptr->value!=b_ptr->value){
+				return false;
+			}
+		return true;
+	}
 
+
+<<<<<<< HEAD
+=======
+ 	template<Dlist Data> friend bool operator!=(const List<data> &a, const List <data> &b)  
+>>>>>>> 9b91f333f3cab3088d25153096cd13382a4061b6
 
  	template<Dlist Data> friend bool operator!=(const List<data> &a, const List <data> &b) 
 
