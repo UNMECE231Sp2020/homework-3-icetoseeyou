@@ -165,25 +165,25 @@ class List {
 			do {
 				pop_front();
 
-			}while(!empty())
+			}while(!empty());
 			_front=NULL;
-			_back=NULL
+			_back=NULL;
 
 			return *this;
 		}
 
 
- 	template<Dlist Data> friend bool operator==(const List<data> &a, const List <data> &b)  
+ 	template<class D> friend bool operator==(const List<D> &a, const List <D> &b);  
 
 
- 	template<Dlist Data> friend bool operator!=(const List<data> &a, const List <data> &b)  
+ 	template<class D> friend bool operator!=(const List<D> &a, const List <D> &b); 
 
 		};
 
 
 
 
- 	template<Dlist Data> friend bool operator==(const List<Data> &a, const List <Data> &b){
+ 	template<class D> friend bool operator==(const List<D> &a, const List <D> &b){
 		
 		if (a.size()!=b.size()){
 			return false;
@@ -199,7 +199,7 @@ class List {
 	}
 
 
- 	template<Dlist Data> bool !=(const List<Data> &a, const List <Data> &b) {
+ 	template<class D> bool !=(const List<D> &a, const List <D> &b) {
 
 		return !(a==b);
 	}
