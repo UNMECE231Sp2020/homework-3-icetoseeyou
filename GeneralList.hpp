@@ -124,7 +124,7 @@ class List {
 			else {
 			
 
-				Dlist *new_back;
+				Dlist *new_back=_back;
 				_back=_back->prev;
 				_back->next=NULL;
 				delete new_back;
