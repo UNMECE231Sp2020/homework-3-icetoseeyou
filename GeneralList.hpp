@@ -39,7 +39,7 @@ class List {
 			//while(_size > 0) {
 				pop_front();
 			}
-		}
+		}	
 
 		Data &front() const {
 			return _front->value;
@@ -178,19 +178,18 @@ class List {
 
  	template<Dlist Data> friend bool operator!=(const List<data> &a, const List <data> &b)  
 
+		};
 
-
-	template <Dlist Data> 
-
-	bool == (const List <Data>&a, const List<Data>) {
-
-	if (a.size()!=b.size()){
-		return false;
-	}
 
 
 
  	template<Dlist Data> friend bool operator==(const List<data> &a, const List <data> &b){
+		
+		if (a.size()!=b.size()){
+			return false;
+
+
+	}
 		for(auto *a_ptr=a._front, auto *b_ptr=b._front;(a_ptr!=nullptr)&&(b_ptr!=nullptr);
 				a_ptr=a_ptr=->next,b_ptr=bptr->next)
 			if(a_ptr->value!=b_ptr->value){
