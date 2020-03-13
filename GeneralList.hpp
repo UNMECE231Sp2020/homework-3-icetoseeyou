@@ -139,10 +139,36 @@ class List {
 
 		//Modify this
 		void print() {
-			Llist *temp;
+			Dlist *temp;
 			for(temp=_front; temp!=nullptr; temp=temp->next) {
 				std::cout << temp->value << " ";
 			}
 			std::cout << std::endl;
 		}
-};
+
+		void print_back(){
+			Dlist *temp;
+			while(temp!=nullptr;){
+			 temp=_back;
+			 temp=temp->prev+1;
+			 std::cout<<temp->value<<" ";
+			}
+			
+			std::cout<<std::endl;
+		}
+		/*	for(temp=_back; temp!=nullptr; temp=temp->prev+1){
+				std::cout << temp->value<<" ";
+		} */
+
+		
+
+
+
+
+ 	template<typename data> friend bool operator==(const List<data> &a, const List <data> &b)
+
+ 	template<typename data> friend bool operator!=(const List<data> &a, const List <data> &b)
+
+
+		
+		};
