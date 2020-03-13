@@ -116,19 +116,18 @@ class List {
 			if(_front == NULL) return;
 			if(_front==_back) { 	
 	
-				Dlist *new_back = current;
-				current=_front;
+				Dlist *new_back =_front;
 				_front = NULL;
-				delete current;
+				delete new_back;
 				return;
 			}
 			else {
 			
 
-				Dlist *new_back = current;
+				Dlist *new_back;
 				_back=_back->prev;
 				_back->next=NULL;
-				delete current;
+				delete new_back;
 			}
 		}
 
