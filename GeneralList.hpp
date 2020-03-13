@@ -183,7 +183,7 @@ class List {
 
 
 
- 	template<Dlist Data> friend bool operator==(const List<data> &a, const List <data> &b){
+ 	template<Dlist Data> friend bool operator==(const List<Data> &a, const List <Data> &b){
 		
 		if (a.size()!=b.size()){
 			return false;
@@ -199,47 +199,10 @@ class List {
 	}
 
 
- 	template<Dlist Data> bool !=(const List<data> &a, const List <data> &b) {
+ 	template<Dlist Data> bool !=(const List<Data> &a, const List <Data> &b) {
 
 		return !(a==b);
 	}
 
 		
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
-
-
-
-
-
-
- 	template<Dlist Data> friend bool operator!=(const List<data> &a, const List <data> &b) {
-	
-		bool !=(a->value,b->value) {
-
-			return !(a==b);
-	}
-
-
-	} 
-
-	template <Dlist Data> 
-
-	bool == (const List <Data>&a, const List<Data>) {
-
-	if (a.size()!=b.size()){
-		return false;
-	}
-
-
-		};
