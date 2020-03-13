@@ -192,16 +192,16 @@ class List {
 			return false;
 
 
-	}
+		}
 		for(auto *a_ptr=a._front, *b_ptr=b._front;(a_ptr!=nullptr)&&(b_ptr!=nullptr);
 				a_ptr=a_ptr->next,b_ptr=b_ptr->next){
 			if(a_ptr->value!=b_ptr->value){
 				return false;
 			}
 		return true;
+		}
+
 	}
-
-
  	template<class D> bool operator!=(const List<D> &a, const List <D> &b) {
 
 		return !(a==b);
