@@ -140,28 +140,26 @@ class List {
 		//Modify this
 		void print() {
 			Dlist *temp;
-			for(temp=_front; temp!=nullptr; temp=temp->next) {
-				std::cout << temp->value << " ";
+			temp=_front;
+			while(temp!=NULL) {
+				std::cout<<temp->value<<" ";
+				temp=temp->next;
 			}
-			std::cout << std::endl;
+				
+			std::cout<<std::endl;
 		}
 
 		void print_back(){
 			Dlist *temp;
-			while(temp!=nullptr;){
-			 temp=_back;
-			 temp=temp->prev+1;
+			temp=_back;
+			while(temp!=nullptr){
 			 std::cout<<temp->value<<" ";
+			 temp=temp->prev;
 			}
-			
+
 			std::cout<<std::endl;
+			
 		}
-		/*	for(temp=_back; temp!=nullptr; temp=temp->prev+1){
-				std::cout << temp->value<<" ";
-		} */
-
-		
-
 
 
 
