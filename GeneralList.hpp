@@ -167,7 +167,7 @@ class List {
 
 			}while(!empty())
 			_front=NULL;
-			_tail=NULL
+			_back=NULL
 
 			return *this;
 		}
