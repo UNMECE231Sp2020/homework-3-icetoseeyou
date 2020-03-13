@@ -173,9 +173,9 @@ class List {
 		}
 
 
- 	template<typename data> friend bool operator==(const List<data> &a, const List <data> &b)
+ 	template<Dlist Data> friend bool operator==(const List<data> &a, const List <data> &b)
 
- 	template<typename data> friend bool operator!=(const List<data> &a, const List <data> &b)
+ 	template<Dlist Data> friend bool operator!=(const List<data> &a, const List <data> &b) 
 
 
 		
