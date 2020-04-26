@@ -15,7 +15,7 @@ class List {
 		Dlist *_back;
 
 		void reccopy(const Dlist *ptr) {
-			if(ptr) { // if(ptr != nullptr) {
+			if(ptr) { // if(ptr != nullptr) 
 				reccopy(ptr->next);
 				push_front(ptr->value);
 			}
@@ -36,7 +36,6 @@ class List {
 
 		~List() {
 			while(!empty()) {
-			//while(_size > 0) {
 				pop_front();
 			}
 		}	
@@ -160,8 +159,26 @@ class List {
 			
 		}
 		
-		List &operator=(List &x) {
 		
+		bool search(Data search_alue){
+
+			Dlist *temp;
+			for(temp=_front;temp!=nullptr;temp=temp->next){
+			
+				if(temp->value == search_alue){
+				
+					return true;
+				}
+			}
+			
+			return false;
+		
+		}
+		
+		
+		
+		
+		List &operator=(List x) {
 		
 		 	 do {
 				pop_front();
@@ -169,11 +186,13 @@ class List {
 			}while(!empty());
 			_front=NULL;
 			_back=NULL;
+			reccopy(x._front);
 
 			return *this;
 			
-			 std::cout<<"Hello dawg";
 		}
+
+
 
 
  	template<class D> friend bool operator==(const List<D> &a, const List <D> &b);  
@@ -181,10 +200,15 @@ class List {
 
  	template<class D> friend bool operator!=(const List<D> &a, const List <D> &b); 
 
-		};
+		
 
 
+	template <class D>
 
+	friend std::ostream &operator<</*Here <>*/ (std::ostream &os, const List<D> &List);
+
+
+			};
 
  	template<class D> bool operator==(const List<D> &a, const List <D> &b){
 		
@@ -208,4 +232,16 @@ class List {
 	}
 
 		
-	
+	template <class D>
+
+		std::ostream &operator<< (std::ostream &os, const List<D> &List) {
+
+			    for(auto *iter = List._front; iter != nullptr; iter = iter->next) {
+
+				            os << iter->value << " ";
+
+					        }
+
+			        return os;
+
+		};
