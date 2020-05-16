@@ -4,10 +4,12 @@ template <class Data>
 class List {
 	private:
 		struct _list {
+		
 			Data value;
 			struct _list *next;
 			struct _list *prev;
 		};
+	
 		typedef struct _list Dlist;
 
 		size_t _size;
@@ -16,57 +18,73 @@ class List {
 
 		void reccopy(const Dlist *ptr) {
 			if(ptr) { // if(ptr != nullptr) 
+			
 				reccopy(ptr->next);
 				push_front(ptr->value);
 			}
 		}
 	public:
 		List() {
+		
 			_size = 0;
 			_front = nullptr;
 			_back = nullptr;
 		}
 
 		List(const List &list) {
+		
 			_front=nullptr;
 			_back=nullptr;
 			_size=0;
+		
 			reccopy(list._front);
 		}
 
 		~List() {
+		
 			while(!empty()) {
+			
 				pop_front();
 			}
 		}	
 
 		Data &front() const {
+		
 			return _front->value;
 		}
 
 		Data &back() const {
+		
 			return _back->value;
 		}
 
 		size_t size() const {
+		
 			return _size;
 		}
 
 		size_t length() const {
+		
 			return _size;
 		}
 		
 		void push_front(Data data) {
+		
 			Dlist *newNode = new Dlist;
+		
 			newNode->value = data;
 			newNode->prev = nullptr;
 
 			if(_front==nullptr) {
+			
 				newNode->next=nullptr;
+			
 				_back=newNode;
 			}
 			else {
+			
 				newNode->next=_front;
+			
 				_front->prev= newNode;
 			}
 
@@ -75,7 +93,9 @@ class List {
 		}
 
 		void push_back(Data data) {
+		
 			Dlist *newNode = new Dlist;
+			
 			newNode->value = data;
 			newNode->next=nullptr;
 
@@ -90,10 +110,12 @@ class List {
 			}
 
 			_back=newNode;
+		
 			_size+=1;
 		}
 
 		void pop_front() {
+		
 			Dlist *front_to_delete = _front;
 			_front = _front->next;
 
@@ -105,6 +127,7 @@ class List {
 			}
 
 			delete front_to_delete;
+		
 			_size -= 1;
 		}
 
@@ -116,16 +139,21 @@ class List {
 			if(_front==_back) { 	
 	
 				Dlist *new_back =_front;
+			
 				_front = NULL;
+			
 				delete new_back;
+			
 				return;
 			}
 			else {
 			
 
 				Dlist *new_back=_back;
+			
 				_back=_back->prev;
 				_back->next=NULL;
+			
 				delete new_back;
 			}
 		}
@@ -137,8 +165,10 @@ class List {
 
 		//Modify this
 		void print() {
+		
 			Dlist *temp;
 			temp=_front;
+		
 			while(temp!=NULL) {
 				std::cout<<temp->value<<" ";
 				temp=temp->next;
@@ -148,8 +178,10 @@ class List {
 		}
 
 		void print_back(){
+		
 			Dlist *temp;
 			temp=_back;
+		
 			while(temp!=nullptr){
 			 std::cout<<temp->value<<" ";
 			 temp=temp->prev;
@@ -163,6 +195,7 @@ class List {
 		bool search(Data search_alue){
 
 			Dlist *temp;
+			
 			for(temp=_front;temp!=nullptr;temp=temp->next){
 			
 				if(temp->value == search_alue){
@@ -179,11 +212,15 @@ class List {
 		
 		
 		List &operator=(List x) {
+			
+			if(!empty()) { 
 		
-		 	 do {
+			do {
 				pop_front();
 
 			}while(!empty());
+
+			}
 			_front=NULL;
 			_back=NULL;
 			reccopy(x._front);
@@ -208,9 +245,9 @@ class List {
 	friend std::ostream &operator<</*Here <>*/ (std::ostream &os, const List<D> &List);
 
 
-			};
+};
 
- 	template<class D> bool operator==(const List<D> &a, const List <D> &b){
+ 	template<class D> bool operator==(const List<D> &a, const List <D> &b) {
 		
 		if (a.size()!=b.size()){
 			return false;
@@ -218,11 +255,16 @@ class List {
 
 		}
 		for(auto *a_ptr=a._front, *b_ptr=b._front;(a_ptr!=nullptr)&&(b_ptr!=nullptr);
-				a_ptr=a_ptr->next,b_ptr=b_ptr->next){
-			if(a_ptr->value!=b_ptr->value){
+			
+			a_ptr=a_ptr->next,b_ptr=b_ptr->next){
+			
+			if(a_ptr->value!=b_ptr->value) {
+			
 				return false;
 			}
+
 		return true;
+	
 		}
 
 	}
@@ -234,14 +276,14 @@ class List {
 		
 	template <class D>
 
-		std::ostream &operator<< (std::ostream &os, const List<D> &List) {
+	std::ostream &operator<< (std::ostream &os, const List<D> &List) {
 
-			    for(auto *iter = List._front; iter != nullptr; iter = iter->next) {
+		 for(auto *iter = List._front; iter != nullptr; iter = iter->next) {
 
-				            os << iter->value << " ";
+			 os << iter->value << " ";
 
-					        }
+		 }
 
-			        return os;
+		 return os;
 
-		};
+};
